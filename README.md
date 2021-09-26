@@ -21,3 +21,20 @@ for(int i=0;i<numRows;i++)
 return v;
     }
 };  
+力扣62 不能用dfs，df超时，但是本地编译器可以通过，蛮开心的。                           
+class Solution {
+public:
+    int uniquePaths(int m, int n) {
+int count=0;
+ count=dfs(0,0,m,n);
+return count;
+    }
+int dfs(int x,int y,int m,int n){
+        if(x==n-1&&y==m-1)  return 1;
+        int count=0;
+if(x>=0&&x<n&&y>=0&&y<m){
+    count=dfs(x+1,y,m,n)+dfs(x,y+1,m,n);
+}
+return count;
+    }
+};
