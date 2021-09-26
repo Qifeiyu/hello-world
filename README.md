@@ -1,6 +1,6 @@
 # hello-world
-my first repository
-in this object
+注意不要多余的零
+力扣118题
 class Solution {
 public:
     vector<vector<int>> generate(int numRows) {
