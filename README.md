@@ -70,3 +70,20 @@ public:
         return dp[len-1];
     }
 };
+                                           力扣53
+class Solution {
+public:
+    int maxSubArray(vector<int>& nums) {
+int index=0,maxvalue=nums[0];
+for(int i=0;i<nums.size();i++){
+    index+=nums[i];
+    if(index>maxvalue)
+    maxvalue=index;
+    //注意这里上下两边不能互换，因为要考虑到数组中数全为零的情形
+    if(index<=0){
+        index=0;
+    }
+}
+return maxvalue;
+    }
+};
