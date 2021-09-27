@@ -52,4 +52,21 @@ dp[i][j]=dp[i][j-1]+dp[i-1][j];
 }
 return dp[m-1][n-1];
     }
-};                          
+};   
+                          力扣45题 dp和提拉克斯标号法如出一辙 
+class Solution {
+public:
+    int jump(vector<int>& nums) {
+        const int len = nums.size();
+        int dp[len];
+        memset(dp,0x3f,sizeof(dp));//初始化为无穷大
+        dp[0] = 0;  //第0步是出发点，初始化为0
+        for(int i=0 ; i<len ; ++i){
+            int tmp = nums[i];
+            for(int j=1 ; i+j<len && j<=tmp ; ++j){ //注意不要让数组越界
+                dp[i+j] = min(dp[i+j] , dp[i]+1);//逐个松弛
+            }
+        }
+        return dp[len-1];
+    }
+};
